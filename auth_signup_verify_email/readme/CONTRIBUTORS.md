@@ -3,3 +3,4 @@
 - Simone Orsi \<<simone.orsi@camptocamp.com>\>
 - Alexandre Díaz \<<alexandre.diaz@tecnativa.com>\>
 - Eugene Molotov \<<molotov@it-projects.info>\>
+- David Fuentes \<<d.fuentes22@info.uas.edu.mx>\>
