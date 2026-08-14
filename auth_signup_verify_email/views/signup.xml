@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Passwords are only asked to invited users, i.e. those arriving with a
+         valid signup token. Uninvited ones sign up passwordless and get a
+         reset password email instead.
+         Core used to wrap this condition in an `only_passwords` variable, which
+         19.0 removed, so the condition is now spelled out. -->
+    <template id="signup_fields" inherit_id="auth_signup.fields">
+        <xpath expr="//div[hasclass('field-password')]" position="attributes">
+            <attribute name="t-if">token and not invalid_token</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('field-confirm_password')]" position="attributes">
+            <attribute name="t-if">token and not invalid_token</attribute>
+        </xpath>
+    </template>
+    <!-- The login input used to live in `auth_signup.fields`; core moved it to
+         the signup form itself. -->
+    <template id="signup_login" inherit_id="auth_signup.signup">
+        <xpath expr="//input[@name='login']" position="attributes">
+            <attribute name="type">email</attribute>
+        </xpath>
+    </template>
+</odoo>
